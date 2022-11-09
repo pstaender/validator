@@ -1,5 +1,5 @@
 /*
- * Copyright 2017-2021  Koordinierungsstelle für IT-Standards (KoSIT)
+ * Copyright 2017-2022  Koordinierungsstelle für IT-Standards (KoSIT)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,7 +40,7 @@ public class SimpleScenarioCheckTest {
 
     @Before
     public void setup() {
-        final Configuration d = Configuration.load(Simple.SCENARIOS, Simple.REPOSITORY_URI).build();
+        final Configuration d = Configuration.load(Simple.SCENARIOS, Simple.REPOSITORY_URI).build(Helper.getTestProcessor());
         this.implementation = new DefaultCheck(d);
     }
 

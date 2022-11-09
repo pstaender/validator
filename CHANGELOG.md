@@ -5,12 +5,36 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+# 1.5.0 (to be released)
+
+### Fixed
+
+- [CLI][#93](https://projekte.kosit.org/kosit/validator/-/issues/93) Remove usage information, when validation failed
+- [CLI][#95](https://projekte.kosit.org/kosit/validator/-/issues/95) NPE when using empty repository definition (-r "")
+
+### Added
+
+- [CLI] Support for multiple configurations and multiple repositories. See [cli documentation](docs/cli.md) for details
+- [API ]Possibility to use preconfigured Saxon `Processor` instance for validation
+
+### Changed
+
+- [API] [ResolvingConfigurationStrategy.java#getProcessor()](de/kosit/validationtool/api/ResolvingConfigurationStrategy)
+  is
+  removed.
+- [INTERNAL] Bump [Saxon HE](https://www.saxonica.com/documentation11/documentation.xml) to 11.4
+- [INTERNAL] Bump [jaxb-ri](https://github.com/eclipse-ee4j/jaxb-ri) to 2.3.7
+- (CORE) Various other dependency updates. See pom.xml
+
+- [INTERNAL] CLI parsing based on pico-cli, commons-cli is removed
+
 ## 1.4.2
 
 ### Fixed
 
 - [CLI] [#74](https://projekte.kosit.org/kosit/validator/-/issues/74) fix ansi output of the cli version
-- [#80](https://github.com/itplr-kosit/validator/issues/80) using classloader to initialize jaxb context (to support usage in OSGi
+- [#80](https://github.com/itplr-kosit/validator/issues/80) using classloader to initialize jaxb context (to support
+  usage in OSGi
   environments)
 - [#75] (https://github.com/itplr-kosit/validator/issues/75) Improve logging on invalid documents
 

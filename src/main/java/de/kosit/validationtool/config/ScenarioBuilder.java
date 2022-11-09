@@ -1,5 +1,5 @@
 /*
- * Copyright 2017-2021  Koordinierungsstelle für IT-Standards (KoSIT)
+ * Copyright 2017-2022  Koordinierungsstelle für IT-Standards (KoSIT)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -88,6 +88,9 @@ public class ScenarioBuilder implements Builder<Scenario> {
         buildReport(repository, errors, scenario);
         buildAccept(repository, errors, scenario);
         buildNamespaces(scenario);
+        scenario.setFactory(repository.getResolvingConfigurationStrategy());
+        scenario.setUriResolver(repository.getResolver());
+        scenario.setUnparsedTextURIResolver(repository.getUnparsedTextURIResolver());
         return new Result<>(scenario, errors);
     }
 

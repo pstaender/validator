@@ -1,5 +1,5 @@
 /*
- * Copyright 2017-2021  Koordinierungsstelle für IT-Standards (KoSIT)
+ * Copyright 2017-2022  Koordinierungsstelle für IT-Standards (KoSIT)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,8 +16,6 @@
 
 package de.kosit.validationtool.impl;
 
-import de.kosit.validationtool.impl.xml.StrictLocalResolvingStrategy;
-
 import net.sf.saxon.s9api.Processor;
 
 /**
@@ -29,7 +27,7 @@ public class TestObjectFactory {
 
     public static Processor createProcessor() {
         if (processor == null) {
-            processor = new StrictLocalResolvingStrategy().getProcessor();
+            processor = Helper.getTestProcessor();
         }
         return processor;
     }

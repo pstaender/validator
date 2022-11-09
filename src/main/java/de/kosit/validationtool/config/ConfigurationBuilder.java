@@ -1,5 +1,5 @@
 /*
- * Copyright 2017-2021  Koordinierungsstelle für IT-Standards (KoSIT)
+ * Copyright 2017-2022  Koordinierungsstelle für IT-Standards (KoSIT)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -67,8 +67,6 @@ public class ConfigurationBuilder {
     private ResolvingConfigurationStrategy resolvingConfigurationStrategy;
 
     private ResolvingMode resolvingMode = ResolvingMode.STRICT_RELATIVE;
-
-    private Processor processor;
 
     private String author = "API";
 
@@ -269,12 +267,9 @@ public class ConfigurationBuilder {
      * @return a valid configuration
      * @throws IllegalStateException when the configuration is not valid/complete
      */
-    public Configuration build() {
+    public Configuration build(final Processor processor) {
         final ResolvingConfigurationStrategy resolving = getResolvingConfigurationStrategy();
-        if (this.processor == null) {
-            this.processor = resolving.getProcessor();
-        }
-        final ContentRepository contentRepository = new ContentRepository(resolving, this.repository);
+        final ContentRepository contentRepository = new ContentRepository(processor, resolving, this.repository);
 
         final List<Scenario> list = initializeScenarios(contentRepository);
         final Scenario fallbackScenario = initializeFallback(contentRepository);

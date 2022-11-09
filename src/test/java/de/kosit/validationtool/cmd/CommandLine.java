@@ -1,5 +1,5 @@
 /*
- * Copyright 2017-2021  Koordinierungsstelle für IT-Standards (KoSIT)
+ * Copyright 2017-2022  Koordinierungsstelle für IT-Standards (KoSIT)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -114,22 +114,22 @@ public class CommandLine {
     }
 
     public static String getOutput() {
-        return new String(out.getOut().toByteArray());
+        return out.getOut().toString();
     }
 
     public static String getErrorOutput() {
-        return new String(error.getOut().toByteArray());
+        return error.getOut().toString();
     }
 
-    public List<String> getOutputLines() {
+    public static List<String> getOutputLines() {
         return readLines(out.getOut().toByteArray());
     }
 
-    public List<String> getErrorLines() {
+    public static List<String> getErrorLines() {
         return readLines(error.getOut().toByteArray());
     }
 
-    private List<String> readLines(final byte[] bytes) {
+    private static List<String> readLines(final byte[] bytes) {
         try ( final ByteArrayInputStream in = new ByteArrayInputStream(bytes);
               final Reader r = new InputStreamReader(in) ) {
 

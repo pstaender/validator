@@ -1,5 +1,5 @@
 /*
- * Copyright 2017-2021  Koordinierungsstelle für IT-Standards (KoSIT)
+ * Copyright 2017-2022  Koordinierungsstelle für IT-Standards (KoSIT)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -59,25 +59,25 @@ public class VersioningTest {
 
     @Test
     public void testBase() throws URISyntaxException {
-        final Scenarios result = this.service.readXml(BASE.toURI(), Scenarios.class, this.repository.getScenarioSchema());
+        final Scenarios result = this.service.readXml(BASE.toURI(), Scenarios.class, SchemaProvider.getScenarioSchema());
         assertThat(result).isNotNull();
     }
 
     @Test
     public void testFrameworkIncrement() throws URISyntaxException {
-        final Scenarios result = this.service.readXml(INCREMENT.toURI(), Scenarios.class, this.repository.getScenarioSchema());
+        final Scenarios result = this.service.readXml(INCREMENT.toURI(), Scenarios.class, SchemaProvider.getScenarioSchema());
         assertThat(result).isNotNull();
     }
 
     @Test
     public void testNewFeature() throws URISyntaxException {
         this.exception.expect(ConversionService.ConversionExeption.class);
-        this.service.readXml(NEW_FEATURE.toURI(), Scenarios.class, this.repository.getScenarioSchema());
+        this.service.readXml(NEW_FEATURE.toURI(), Scenarios.class, SchemaProvider.getScenarioSchema());
     }
 
     @Test
     public void testNewVersion() throws URISyntaxException {
         this.exception.expect(ConversionService.ConversionExeption.class);
-        this.service.readXml(NEW_VERSION.toURI(), Scenarios.class, this.repository.getScenarioSchema());
+        this.service.readXml(NEW_VERSION.toURI(), Scenarios.class, SchemaProvider.getScenarioSchema());
     }
 }

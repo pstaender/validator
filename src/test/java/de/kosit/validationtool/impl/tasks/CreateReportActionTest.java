@@ -1,5 +1,5 @@
 /*
- * Copyright 2017-2021  Koordinierungsstelle für IT-Standards (KoSIT)
+ * Copyright 2017-2022  Koordinierungsstelle für IT-Standards (KoSIT)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -54,8 +54,7 @@ public class CreateReportActionTest {
     @Before
     public void setup() {
         this.repository = Simple.createContentRepository();
-        this.action = new CreateReportAction(this.repository.getProcessor(), new ConversionService(), this.repository.getResolver(),
-                this.repository.getUnparsedTextURIResolver());
+        this.action = new CreateReportAction(this.repository.getProcessor(), new ConversionService());
     }
 
     @Test
@@ -85,7 +84,7 @@ public class CreateReportActionTest {
     public void testExecutionException() throws SaxonApiException {
         final Processor p = mock(Processor.class);
         final DocumentBuilder documentBuilder = mock(DocumentBuilder.class);
-        this.action = new CreateReportAction(p, new ConversionService(), null, null);
+        this.action = new CreateReportAction(p, new ConversionService());
 
         when(p.newDocumentBuilder()).thenReturn(documentBuilder);
         when(documentBuilder.build(any(Source.class))).thenThrow(new SaxonApiException("mocked"));

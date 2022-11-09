@@ -1,5 +1,5 @@
 /*
- * Copyright 2017-2021  Koordinierungsstelle für IT-Standards (KoSIT)
+ * Copyright 2017-2022  Koordinierungsstelle für IT-Standards (KoSIT)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -81,7 +81,7 @@ public interface Configuration {
      * Add some additional parameters to the validator configuration. Parameter usage depends on actual implementation
      * of {@link Check}
      *
-     * @return
+     * @return A Map containing the additional Parameters to be added.
      */
     Map<String, Object> getAdditionalParameters();
 

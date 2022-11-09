@@ -1,5 +1,5 @@
 /*
- * Copyright 2017-2021  Koordinierungsstelle für IT-Standards (KoSIT)
+ * Copyright 2017-2022  Koordinierungsstelle für IT-Standards (KoSIT)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ import de.kosit.validationtool.api.Configuration;
 import de.kosit.validationtool.api.InputFactory;
 import de.kosit.validationtool.api.Result;
 import de.kosit.validationtool.impl.DefaultCheck;
+import de.kosit.validationtool.impl.Helper;
 import de.kosit.validationtool.impl.Helper.Simple;
 
 /**
@@ -35,7 +36,7 @@ public class SimpleConfigTest {
     @Test
     public void testSimpleWithApi() {
         //@formatter:off
-        final Configuration config = createSimpleConfiguration().build();
+        final Configuration config = createSimpleConfiguration().build(Helper.getTestProcessor());
         //@formatter:on
         final DefaultCheck check = new DefaultCheck(config);
         final Result result = check.checkInput(InputFactory.read(Simple.SIMPLE_VALID));
